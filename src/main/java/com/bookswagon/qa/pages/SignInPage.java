@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignInPage extends BaseClass {
 
+    @FindBy(xpath = "//*[@id=\"aspnetForm\"]/header/div[1]/div/div[1]/a")
+    WebElement booksWagonImage;
     @FindBy(xpath = "//*[@id=\"ctl00_lblUser\"]")
     WebElement myAccount;
 
@@ -32,12 +34,15 @@ public class SignInPage extends BaseClass {
         PageFactory.initElements(driver, this);
     }
 
-    public void SignIn(String mobileOrEmailInput, String passwordInput) throws InterruptedException {
+    // Method to sign in into the Bookswagon website
+    public HomePage SignIn(String mobileOrEmailInput, String passwordInput) throws InterruptedException {
         myAccount.click();
         mobileOrEmail.sendKeys(mobileOrEmailInput);
         password.sendKeys(passwordInput);
         //forgetPassword.click();
         login.click();
+
+        return new HomePage();
     }
 
 }
