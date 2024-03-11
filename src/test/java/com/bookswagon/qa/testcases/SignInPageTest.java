@@ -25,8 +25,18 @@ public class SignInPageTest extends BaseClass {
         signInPage.SignIn(properties.getProperty("email"), properties.getProperty("password"));
     }
 
+    @Test
+    public void SignInMultipleTest() throws InterruptedException{
+        signInPage.SignInMultiple();
+    }
+
+//    @Test
+//    public void SignInMultiTest() throws InterruptedException {
+//        signInPage.SignInMulti();
+//    }
+
     @AfterMethod
     public void redirectingHomepage(){
-        driver.quit();
+        //driver.quit();
     }
 }
