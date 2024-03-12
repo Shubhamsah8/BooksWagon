@@ -20,6 +20,11 @@ public class SignInPageTest extends BaseClass {
         signInPage = new SignInPage();
     }
 
+    @DataProvider(name = "credentials")
+    public Object[][] getCredentials() {
+        return TestUtil.getTestData("Sheet1");
+    }
+
     @Test
     public void SignInTest() throws InterruptedException {
         signInPage.SignIn(properties.getProperty("email"), properties.getProperty("password"));
@@ -28,6 +33,11 @@ public class SignInPageTest extends BaseClass {
     @Test
     public void SignInMultipleTest() throws InterruptedException{
         signInPage.SignInMultiple();
+    }
+
+    @Test(dataProvider = "credentials")
+    public void SignInTest(String mobileOrEmail, String password) throws InterruptedException {
+        signInPage.SignIn(mobileOrEmail, password);
     }
 
 //    @Test
