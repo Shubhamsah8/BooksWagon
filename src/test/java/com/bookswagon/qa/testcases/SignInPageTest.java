@@ -20,9 +20,9 @@ public class SignInPageTest extends BaseClass {
         signInPage = new SignInPage();
     }
 
-    @DataProvider(name = "credentials")
-    public Object[][] getCredentials() {
-        return TestUtil.getTestData("Sheet1");
+    @Test(dataProvider = "credentials")
+    public void SignInUsingTestDataTest(String mobileOrEmail, String password) throws InterruptedException {
+        signInPage.SignInUsingTestData(mobileOrEmail, password);
     }
 
     @Test
