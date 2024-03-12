@@ -14,7 +14,7 @@ public class TestUtil{
     public static long PAGE_LOAD_TIMEOUT = 5;
     public static long IMPLICITLY_WAIT = 2;
 
-    public static String TestDataPath = "C:\\Users\\RYZEN\\IdeaProjects\\BooksWagon\\BookswagonTestData.xlsx";
+    public static String TestDataPath = "C:\\Users\\RYZEN\\IdeaProjects\\BooksWagon\\src\\main\\java\\com\\bookswagon\\qa\\testdata\\BookswagonTestData.xlsx";
 
     static Workbook book;
     static Sheet sheet;

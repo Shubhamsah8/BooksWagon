@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.bookswagon.qa.listener.TestListener" />
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/Users/RYZEN/IdeaProjects/BooksWagon">
+        <classes>
+            <class name="com.bookswagon.qa.testcases.HomePageTest">
+                <methods>
+                    <include name="searchBookTest"/>
+                    <include name="newArrivalsTest"/>
+                    <include name="bestSellersTest"/>
+                    <include name="boxSetsTest"/>
+                    <include name="fictionBookTest"/>
+                    <include name="awardWinnersTest"/>
+                    <include name="featuredAuthors"/>
+                </methods>
+            </class>
+            <class name="com.bookswagon.qa.testcases.NewArrivalsTest">
+                <methods>
+                    <include name="priceRangeSliderTest"/>
+                    <include name="discountRangeSliderTest"/>
+                    <include name="BindingCheckBoxTest"/>
+                    <include name="LanguageCheckBoxTest"/>
+                    <include name="ReadMoreClickTest"/>
+                </methods>
+            </class>
+            <class name="com.bookswagon.qa.testcases.RequestBookTest">
+                <methods>
+                    <include name="FillRequestBook"/>
+                </methods>
+            </class>
+            <class name="com.bookswagon.qa.testcases.SignInPageTest">
+                <methods>
+                    <include name="SignInTest"/>
+                    <include name="SignInMultipleTest"/>
+                    <include name="SignInTest"/>
+                </methods>
+            </class>
+            <class name="com.bookswagon.qa.testcases.SignUpPageTest">
+                <methods>
+                    <include name="loginPageTitleTest"/>
+                    <include name="SignUpTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

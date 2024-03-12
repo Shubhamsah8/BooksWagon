@@ -65,7 +65,7 @@ public class SignInPage extends BaseClass {
         Object[][] testData = TestUtil.getTestData("Sheet1");
         String mobileOrEmailInput = testData[0][0].toString(); // Assuming email/mobile is in the first column
         String passwordInput = testData[0][1].toString(); // Assuming password is in the second column
-        
+
         myAccount.click();
         mobileOrEmail.sendKeys(mobileOrEmailInput);
         password.sendKeys(passwordInput);
