@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="com.bookswagon.qa.listener.TestListener" />
+        <listener class-name="com.bookswagon.qa.listener.TestListener"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/RYZEN/IdeaProjects/BooksWagon">
         <classes>

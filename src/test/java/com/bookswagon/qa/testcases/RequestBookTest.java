@@ -6,8 +6,14 @@ import com.bookswagon.qa.pages.RequestBook;
 import com.bookswagon.qa.pages.SignInPage;
 import org.openqa.selenium.WebDriverException;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 
+@Listeners(com.bookswagon.qa.listener.TestListener.class)
 public class RequestBookTest extends BaseClass {
 
     public SignInPage signInPage;
@@ -32,6 +38,9 @@ public class RequestBookTest extends BaseClass {
     }
 
     @Test
+    @Description("Fill request book form")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Request Book")
     public void FillRequestBook(){
         requestBook.ISBNinput(properties.getProperty("ISBN"));
         requestBook.BookTitleInput(properties.getProperty("bookTitle"));
@@ -41,5 +50,4 @@ public class RequestBookTest extends BaseClass {
         requestBook.MobilePhone(properties.getProperty("mobileNumber"));
         requestBook.SubmitClick();
     }
-
 }
