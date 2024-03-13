@@ -1,13 +1,12 @@
 package com.bookswagon.qa.testcases;
 
 import com.bookswagon.qa.baseclass.BaseClass;
+import com.bookswagon.qa.listener.TestListener;
 import com.bookswagon.qa.pages.SignInPage;
 import com.bookswagon.qa.utility.TestUtil;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+@Listeners(com.bookswagon.qa.listener.TestListener.class)
 public class SignInPageTest extends BaseClass {
 
     SignInPage signInPage;

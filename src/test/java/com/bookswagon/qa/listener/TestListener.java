@@ -2,10 +2,16 @@ package com.bookswagon.qa.listener;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.bookswagon.qa.baseclass.BaseClass;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import java.io.File;
+import java.io.IOException;
 
 public class TestListener extends BaseClass implements ITestListener {
 
@@ -30,6 +36,15 @@ public class TestListener extends BaseClass implements ITestListener {
         test = extentReports.createTest(result.getMethod().getMethodName());
         extentReports.attachReporter(sparkReporter);
         test.log(Status.FAIL, "Test Failed: " + result.getMethod().getMethodName());
+
+        // Capture Screenshot
+        try {
+            String screenshotPath = captureScreenshot(result.getMethod().getMethodName());
+            test.addScreenCaptureFromPath(screenshotPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         extentReports.flush();
     }
 
@@ -55,4 +70,22 @@ public class TestListener extends BaseClass implements ITestListener {
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         // TODO Auto-generated method stub
     }
+
+    private String captureScreenshot(String methodName) throws IOException {
+        // Convert web driver object to TakeScreenshot
+        TakesScreenshot scrShot = ((TakesScreenshot) driver);
+
+        // Call getScreenshotAs method to create image file
+        File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+
+        // Define the destination file path
+        String destFilePath = "screenshots/" + methodName + "_screenshot.png";
+
+        // Create destination directory if it doesn't exist
+        File destFile = new File(destFilePath);
+        FileUtils.copyFile(srcFile, destFile);
+
+        return destFilePath;
+    }
+
 }
