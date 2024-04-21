@@ -27,7 +27,7 @@ public class BaseClass {
         try{
             properties = new Properties();
 
-            FileInputStream inputStream = new FileInputStream("C:\\Users\\RYZEN\\IdeaProjects\\BooksWagon\\src\\main\\java\\com\\bookswagon\\qa\\config\\config.properties");
+            FileInputStream inputStream = new FileInputStream("C:\\Users\\INTEL\\IdeaProjects\\BooksWagon\\src\\main\\java\\com\\bookswagon\\qa\\config\\config.properties");
             properties.load(inputStream);
             logger.info("Properties loaded successfully: " + properties);
         } catch (FileNotFoundException e) {
